@@ -1,0 +1,12 @@
+*{
+    margin:auto;
+}
+
+p{
+    color:yellow;
+    background:green;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

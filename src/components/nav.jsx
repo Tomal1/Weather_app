@@ -24,7 +24,7 @@ const Nav = () =>{
 
 
 
-        
+
         const success = (position) => {
             let lat = position.coords.latitude
             let long = position.coords.longitude
@@ -47,7 +47,7 @@ const Nav = () =>{
         }
 
         const error = () =>{
-            alert("cant retrive location");
+            alert("cant retrive location, please turn on your location");
         }
 
         navigator.geolocation.getCurrentPosition(success, error);

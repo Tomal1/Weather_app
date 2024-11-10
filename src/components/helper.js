@@ -1,19 +1,30 @@
+const helper = () => {
+  
+  const success = (position) => {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
 
+    let arg = "Dudley";
 
-const helper = () =>{
-
+    // first fetch only gets current location name
+    // fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=7&appid=1c2664e16cd9dca0ca2c91a78a16c059`)
     fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=london&appid=58fa8407237375f8467842ce20027a4c`
-      )
-        .then((response)=>{
-         return response.json()
+      `https://api.openweathermap.org/data/2.5/forecast?q=${arg}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
+    )
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        console.log("xxx", data);
+      });
+  };
 
-        })
-        .then((data)=>{
+  const error = () => {
+    alert("cant retrive location, please turn on your location");
+  };
 
-            return data
-        })
+  navigator.geolocation.getCurrentPosition(success, error);
+};
 
-}
-
-export default helper
+export default helper;

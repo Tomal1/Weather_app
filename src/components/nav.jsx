@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import help from "./helper"
 
 // import helper from "./helper";
 
@@ -15,6 +16,7 @@ const Nav = () =>{
 
         
     const handleSearch = () =>{
+        let currentLocatin = toString(help())
     
     }
     
@@ -27,7 +29,7 @@ const Nav = () =>{
                     <form>
                         
                         <input type="text" value={location} onChange={(e)=>setLocation(e.target.value)}/>
-                        <input type="button" value="search" onClick={() =>handleSearch()}/>
+                        <input type="button" value="search" onClick={() => handleSearch()}/>
                     </form>
                 </div>
                 

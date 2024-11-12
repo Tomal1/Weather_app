@@ -1,14 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import help from "./helper"
-
-// import helper from "./helper";
-
 import "../assets/style/Nav.css"
-
-
-
-
 
 const Nav = () =>{
 
@@ -17,6 +9,8 @@ const Nav = () =>{
         
     const handleSearch = () =>{
         let currentLocatin = toString(help())
+
+        console.log("xcx",currentLocatin)
     
     }
     

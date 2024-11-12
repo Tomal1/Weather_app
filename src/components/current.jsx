@@ -9,32 +9,34 @@ const Current =()=>{
 
     const CurrentLocation = () => {
 
+        let lat;
+        let long;
+        let name;
+
         const success = (position) => {
 
+            lat = position.coords.latitude
+            long = position.coords.longitude
+            fetchName()
 
-
-            // console.log(position.coords.latitude)
-            // console.log(position.coords.longitude)
-
-            return position.coords.longitude
-        //   fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=7&appid=1c2664e16cd9dca0ca2c91a78a16c059`)
-        //   // fetch( `https://api.openweathermap.org/data/2.5/forecast?q=${arg}&appid=1c2664e16cd9dca0ca2c91a78a16c059`)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //     return data[0].name
-        //     });
         };
-
         const error = () => alert("please turn on your location")
-      
         navigator.geolocation.getCurrentPosition(success, error);
-    
         
-      };
+        const fetchName = () =>{
+            fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=7&appid=1c2664e16cd9dca0ca2c91a78a16c059`)
+            // fetch( `https://api.openweathermap.org/data/2.5/forecast?q=${arg}&appid=1c2664e16cd9dca0ca2c91a78a16c059`)
+              .then(response => response.json())
+              .then(data => {
+              name = data[0].name
+              });
+        }
+
+        console.log("this is my location",name)
     
+    };
     
-      console.log(CurrentLocation())
-    
+      
     // const auto = () =>{
     //     console.log()  
 

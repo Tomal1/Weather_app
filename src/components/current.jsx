@@ -17,7 +17,7 @@ const Current = () => {
 
     const error = () => alert("please turn on your location");
     navigator.geolocation.getCurrentPosition(success, error);
-  };
+  };latLong()
 
   let [currentLoc, setCurrentLoc] = useState(null);
 
@@ -48,7 +48,7 @@ const Current = () => {
       .then((res) => res.json())
       .then((data) => {
         data && setInfo(data)
-        console.log("cisty name", data.city.name )
+        console.log("location name", data.city.name )
         console.log("forcast until",((data.list[0].dt % 86400) / 86400) * 24 +":00")
         console.log("Current temp",(Math.round(data.list[0].main.temp-273.15))+" C")
         console.log("max",(Math.round(data.list[0].main.temp_max-273.15))+" C")
@@ -66,9 +66,15 @@ const Current = () => {
   return (
     <div id="currentCon">
       <div className="display">
-        <div>{latLong()}</div> {/*this will display current area only */}
         <div>{console.log(info)}</div>
-        <div></div>
+        <div className="location"></div>
+        <div className="time"></div>
+        <div className="currentTemp"></div>
+        <div className="max"></div>
+        <div className="mix"></div>
+        <div className="winf"></div>
+        <div className="discription"></div>
+        <div className="icon"></div>
       </div>
     </div>
   );

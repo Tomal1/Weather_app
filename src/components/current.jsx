@@ -17,7 +17,9 @@ const Current = () => {
 
     const error = () => alert("please turn on your location");
     navigator.geolocation.getCurrentPosition(success, error);
-  };latLong()
+  };
+  
+  // latLong()
 
   let [currentLoc, setCurrentLoc] = useState(null);
 
@@ -67,14 +69,14 @@ const Current = () => {
     <div id="currentCon">
       <div className="display">
         <div>{console.log(info)}</div>
-        <div className="location"></div>
-        <div className="time"></div>
-        <div className="currentTemp"></div>
-        <div className="max"></div>
-        <div className="mix"></div>
-        <div className="winf"></div>
-        <div className="discription"></div>
-        <div className="icon"></div>
+        <div className="location">loc</div>
+        <div className="time">time</div>
+        <div className="currentTemp">Current temp</div>
+        <div className="max">max</div>
+        <div className="min">min</div>
+        <div className="wind">wind</div>
+        <div className="discription">dis</div>
+        <div className="icon">icon</div>
       </div>
     </div>
   );

@@ -69,14 +69,14 @@ const Current = () => {
     <div id="currentCon">
       <div className="display">
         <div>{console.log(info)}</div>
-        <div className="location">loc</div>
-        <div className="time">time</div>
-        <div className="currentTemp">Current temp</div>
-        <div className="max">max</div>
-        <div className="min">min</div>
-        <div className="wind">wind</div>
-        <div className="discription">dis</div>
-        <div className="icon">icon</div>
+        <div className="location content">loc</div>
+        <div className="time content">time</div>
+        <div className="currentTemp content">Current temp</div>
+        <div className="max content">max</div>
+        <div className="min content">min</div>
+        <div className="wind content">wind</div>
+        <div className="discription content">dis</div>
+        <div className="icon content">icon</div>
       </div>
     </div>
   );

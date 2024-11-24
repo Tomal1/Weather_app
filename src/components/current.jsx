@@ -4,79 +4,56 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const Current = () => {
-  let lat;
-  let long;
+  let [currentLoc, setCurrentLoc] = useState([{}]);
 
-  const latLong = () => {
+  // if you want to avoid infinate loops put everything inside the use effect
+  useEffect(() => {
     const success = (position) => {
-      lat = position.coords.latitude;
-      long = position.coords.longitude;
-
-      findCurrentLocation();
+      let lat = position.coords.latitude;
+      let long = position.coords.longitude;
+      findCurrentLoc(lat, long);
     };
 
     const error = () => alert("please turn on your location");
     navigator.geolocation.getCurrentPosition(success, error);
-  };
-  
-  // latLong()
 
-  let [currentLoc, setCurrentLoc] = useState(null);
+    const findCurrentLoc = (lat, long) => {
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
+      )
+        .then((res) =>  res.status !== 200 ? console.log("somthing wrong") : res.json())
+        .then((data) => setCurrentLoc(data))
+        .catch((err) => console.error(err));
+    };
+  }, []);
 
-  const findCurrentLocation = () => {
-    fetch(
-      `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=7&appid=1c2664e16cd9dca0ca2c91a78a16c059`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrentLoc(data[0].name);
-      })
-      .catch((err) => console.error(err));
+  // let name = currentLoc.name
+  // let time = (currentLoc.dt % 86400) / (86400 * 24)
+  // let wind = currentLoc.wind.speed
+  // let temp = (currentLoc.main.temp - 273.15) + " C"
+  // let min = (currentLoc.main.temp_min -273.15) + " C"
+  // let max = (currentLoc.main.temp_max -273.15) + " C"
+  // let description = currentLoc.weather[0].description
+  // let icon = currentLoc.weather[0].icon
+  console.log(currentLoc)
 
-
-  };
-
-// 86400 sec in 1 day
-// 3600 sec's in 1 hour
-//unix time is sec's since 01/01/1970
-// dt /86400 = nomber of days since 01/01/1970
-  let [info, setInfo] = useState(null)
-
-  useEffect(()=>{
-    currentLoc &&
-    fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=dudley&appid=1c2664e16cd9dca0ca2c91a78a16c059`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        data && setInfo(data)
-        console.log("location name", data.city.name )
-        console.log("forcast until",((data.list[0].dt % 86400) / 86400) * 24 +":00")
-        console.log("Current temp",(Math.round(data.list[0].main.temp-273.15))+" C")
-        console.log("max",(Math.round(data.list[0].main.temp_max-273.15))+" C")
-        console.log("min",(Math.round(data.list[0].main.temp_min-273.15))+" C")
-        console.log("discription:",data.list[0].weather[0].description)
-        console.log("icon",data.list[0].weather[0].icon)
-        console.log("wind-speed:",data.list[0].wind.speed +" mph")
-      });
- 
-  },[])
-
-
-//info.city.name
+  // 86400 sec in 1 day
+  // 3600 sec's in 1 hour
+  //unix time is sec's since 01/01/1970
+  // dt /86400 = nomber of days since 01/01/1970
 
   return (
     <div id="currentCon">
       <div className="display">
-        <div>{console.log(info)}</div>
-        <div className="location content">loc</div>
-        <div className="time content">time</div>
-        <div className="currentTemp content">Current temp</div>
-        <div className="max content">max</div>
-        <div className="min content">min</div>
-        <div className="wind content">wind</div>
-        <div className="discription content">dis</div>
-        <div className="icon content">icon</div>
+      <div className="location content">{currentLoc.name}</div>
+      <div className="time content">Forcast until: {(currentLoc.dt % 86400 / 86400 * 24).toFixed(2)}</div>
+      <div className="currentTemp content">{Math.round(currentLoc.main.temp - 273.15) + " C"}</div>
+      <div className="max content">{Math.round(currentLoc.main.temp_max -273.15) + " C"}</div>
+      <div className="min content">{Math.round(currentLoc.main.temp_min -273.15) + " C"}</div>
+      <div className="wind content">{currentLoc.wind.speed + " mph"}</div>
+      <div className="discription content">{currentLoc.weather[0].description}</div>
+        {/* 
+        <div className="icon content">xxx</div>  */}
       </div>
     </div>
   );

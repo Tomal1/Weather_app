@@ -48,14 +48,14 @@ const Current = () => {
     <div id="currentCon">
       <div className="display">
         {/* to refresh comment out image line first, then the rest, then uncomment everything except image and then uncomment image last */}
-      <div className="location content">{currentLoc.name}</div>
+      {/* <div className="location content">{currentLoc.name}</div>
       <div className="time content">{time}</div>
       <div className="currentTemp content">{Math.round(currentLoc.main.temp - 273.15) + " C"}</div>
       <div className="max content">{Math.round(currentLoc.main.temp_max -273.15) + " C"}</div>
       <div className="min content">{Math.round(currentLoc.main.temp_min -273.15) + " C"}</div>
       <div className="wind content">{currentLoc.wind.speed + " mph"}</div>
-      <div className="discription content">{currentLoc.weather[0].description}</div>
-      <div className="icon content"><img className="iconImg" src={`http://openweathermap.org/img/wn/${currentLoc.weather[0].icon}.png`}/></div> 
+      <div className="discription content">{currentLoc.weather[0].description}</div> */}
+      {/* <div className="icon content"><img className="iconImg" src={`http://openweathermap.org/img/wn/${currentLoc.weather[0].icon}.png`}/></div>  */}
       </div>
     </div>
   );

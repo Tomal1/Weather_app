@@ -1,6 +1,8 @@
 import React from "react"
 import Nav from "./components/nav"
 import Current from "./components/current"
+import Map from "./components/map"
+
 function App() {
   
 
@@ -8,6 +10,7 @@ function App() {
     <>
       <Nav/>
       <Current/>
+      <Map/>
     </>
   )
 }

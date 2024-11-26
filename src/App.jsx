@@ -1,7 +1,7 @@
 import React from "react"
 import Nav from "./components/nav"
 import Current from "./components/current"
-import Map from "./components/map"
+import FiveDays from "./components/fiveDays"
 
 function App() {
   

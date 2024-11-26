@@ -3,24 +3,26 @@ import "../assets/style/fiveDays.css"
 import { useEffect } from "react";
 import { useState } from "react";
 
-const FiveDays = ({location}) =>{
+const FiveDays = (props) =>{
 
-  console.log(location)
+  console.log(props.location)
 
   let [info, setInfo] = useState(null);
 
 
 useEffect(()=>{
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${"Dudley"}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${props.location}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        data && setInfo(data)
      
       });
 
   },[])
+
+  console.log("xxx", info)
 
     return(
             <div id="fiveDay">

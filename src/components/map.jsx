@@ -6,27 +6,32 @@ const Map = () =>{
     return(
             <div class="map">
               <div class="day1 day">
+                <div class="date">date</div>
                 <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
               <div class="day2 day">
-              <div class="icon1">image</div>
+                <div class="date">date</div>
+                <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
               <div class="day3 day">
-              <div class="icon1">image</div>
+                <div class="date">date</div>
+                <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
               <div class="day4 day">
-              <div class="icon1"> image</div>
+                <div class="date">date</div>
+                <div class="icon1"> image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
               <div class="day5 day">
-              <div class="icon1">image</div>
+                <div class="date">date</div>
+                <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>

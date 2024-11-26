@@ -14,7 +14,6 @@
 }
 
 .day{
-   
     width:75px;
     height:60%;
     display:flex;
@@ -24,6 +23,7 @@
     
 
 }
+
 
 
 .icon1, .maxTemp, .minTemp{

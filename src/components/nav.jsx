@@ -16,7 +16,7 @@ const Nav = () =>{
     
     return(
         <>
-                <p>todays weather</p>
+                <p>Weather</p>
                 
                 <div className="searchBox">
                 <label>search location</label>

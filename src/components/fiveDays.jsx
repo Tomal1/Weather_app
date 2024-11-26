@@ -3,14 +3,16 @@ import "../assets/style/fiveDays.css"
 import { useEffect } from "react";
 import { useState } from "react";
 
-const FiveDays = () =>{
+const FiveDays = ({location}) =>{
+
+  console.log(location)
 
   let [info, setInfo] = useState(null);
 
 
 useEffect(()=>{
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${currentLoc}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${"Dudley"}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -19,28 +21,28 @@ useEffect(()=>{
       });
 
   },[])
-  
+
     return(
-            <div class="map">
-              <div class="day1 day">
+            <div id="fiveDay">
+                <div class="day1 day">
                 <div class="date">date</div>
                 <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
-              <div class="day2 day">
+                <div class="day2 day">
                 <div class="date">date</div>
                 <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
-              <div class="day3 day">
+                <div class="day3 day">
                 <div class="date">date</div>
                 <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
-              <div class="day4 day">
+                <div class="day4 day">
                 <div class="date">date</div>
                 <div class="icon1"> image</div>
                 <div class="maxTemp">max</div>

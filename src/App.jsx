@@ -10,7 +10,7 @@ function App() {
     <>
       <Nav/>
       <Current/>
-      <Map/>
+      <FiveDays/>
     </>
   )
 }

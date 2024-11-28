@@ -5,8 +5,6 @@ import { useState } from "react";
 
 const FiveDays = (props) =>{
 
-  console.log(props.location)
-
   let [info, setInfo] = useState(null);
 
 
@@ -16,35 +14,48 @@ useEffect(()=>{
     )
       .then((res) => res.json())
       .then((data) => {
-        data && setInfo(data)
-     
-      });
+        
+
+        let forcast = data.list
+
+        let one = []
+
+        for(let i=7; i<=42; i=i+8){
+
+          one.push(forcast[i])
+        }
+
+        setInfo(one)
+      })
 
   },[])
 
-  console.log("xxx", info)
+
+
+
 
     return(
             <div id="fiveDay">
-                <div class="day1 day">
+
+              <div class="day1 day">
                 <div class="date">date</div>
                 <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
-                <div class="day2 day">
+              <div class="day2 day">
                 <div class="date">date</div>
                 <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
-                <div class="day3 day">
+              <div class="day3 day">
                 <div class="date">date</div>
                 <div class="icon1">image</div>
                 <div class="maxTemp">max</div>
                 <div class="minTemp">min</div>
               </div>
-                <div class="day4 day">
+              <div class="day4 day">
                 <div class="date">date</div>
                 <div class="icon1"> image</div>
                 <div class="maxTemp">max</div>

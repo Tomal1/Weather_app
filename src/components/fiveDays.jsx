@@ -31,7 +31,7 @@ const FiveDays = (props) => {
     // console.log(x.weather[i].icon)
 
     return(
-      <div className="day1 day">
+      <div className="day">
         <div className="date">date</div>
          <div className="icon1"><img src={`http://openweathermap.org/img/wn/${x.weather[0].icon}.png`}/></div>
         <div className="maxTemp">{Math.round(x.main.temp_max-273.15)+"C"}</div>
@@ -43,10 +43,7 @@ const FiveDays = (props) => {
 
   return (
     <div id="fiveDay">
-      <ul>
       {info && display}
-      </ul>
-      
     </div>
   );
 };

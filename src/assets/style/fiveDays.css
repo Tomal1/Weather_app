@@ -20,6 +20,7 @@
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: space-evenly;
+    margin: 1px;
     
 }
 
@@ -27,13 +28,19 @@
 
 .icon1, .maxTemp, .minTemp{
     border:1px solid black;
-    height: 50%;
+    border-radius: 5px;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.descr{
+   
+    height: 20%;
+    text-align: center;
+}
 
-.icon1 {
+.icon1, .descr {
     width: 100%;
 
 }

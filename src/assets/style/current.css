@@ -1,23 +1,25 @@
 
 #currentCon{
-    border: 3px solid black;
-    border-radius: 20px;
-    height: 390px;
-    width: 390px;
-    margin: 10px auto;
-    
+    width: 100vw;
+    height: 90vh;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 
 }
     
 
 .display {
+    border: 3px solid black;
+    border-radius: 20px;
+    height: 390px;
+    width: 390px;
+    margin: 10px auto;
     display: grid;
-    height: 100%;
-    width: 100%;
     grid-template-columns: repeat(6, 65px);
-    grid-template-rows: repeat(6, 65px);
-    
-    
+    grid-template-rows: repeat(6, 65px);   
 }
 
 .icon{
@@ -28,8 +30,8 @@
 }
 
 .iconImg{
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: auto;
 }
 
 .location{
@@ -42,7 +44,6 @@
 
 .time{
     grid-area: "time";
-    border: 1px solid black;
     grid-row: 1/2;
     grid-column: 5/7;
     

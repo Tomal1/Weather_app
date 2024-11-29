@@ -43,11 +43,12 @@ const Current = () => {
   // 3600 sec's in 1 hour
   //unix time is sec's since 01/01/1970
   // dt /86400 = nomber of days since 01/01/1970
-
+console.log(currentLoc)
 
 
   return currentLoc && (
     <div id="currentCon">
+      
       <div className="display">
         {/* to refresh comment out image line first, then the rest, then uncomment everything except image and then uncomment image last */}
         <div className="location content">{currentLoc.name}</div>

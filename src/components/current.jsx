@@ -16,7 +16,7 @@ const Current = () => {
     };
 
     const error = () => alert("please turn on your GPS location");
-    navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.watchPosition(success, error); //getCurrentPosition() will only get position once but this one will keep tracking
 
     const findCurrentLoc = (lat, long) => {
       fetch(
@@ -48,7 +48,7 @@ console.log(currentLoc)
 
   return currentLoc && (
     <div id="currentCon">
-      
+
       <div className="display">
         {/* to refresh comment out image line first, then the rest, then uncomment everything except image and then uncomment image last */}
         <div className="location content">{currentLoc.name}</div>

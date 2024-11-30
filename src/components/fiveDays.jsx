@@ -44,10 +44,10 @@ const FiveDays = (props) => {
           </div>
           <div className="descr">{x.weather[0].description}</div>
           <div className="maxTemp">
-            {Math.round(x.main.temp_max - 273.15) + " C"}
+            {Math.round(x.main.temp_max - 273.15) + "C"}
           </div>
           <div className="minTemp">
-            {Math.round(x.main.temp_min - 273.15) + " C"}
+            {Math.round(x.main.temp_min - 273.15) + "C"}
           </div>
         </div>
       );

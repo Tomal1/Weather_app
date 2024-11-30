@@ -1,7 +1,7 @@
 #currentCon {
   width: 100vw;
   height: 90vh;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   align-items: start;
 }

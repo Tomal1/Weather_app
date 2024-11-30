@@ -9,10 +9,3 @@ p{
     justify-content: center;
     align-items: center;
 }
-
-.searchBox{
-    margin-top:-10vh;
-    height: 10vh;
-    width: 20vw;
-    text-align: center;
-}

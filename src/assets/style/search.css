@@ -1,0 +1,31 @@
+.searchBox{
+    position: absolute;
+    margin-top: 50vh;
+    height: 40vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    
+}
+
+.inputField{
+    height: 28px;
+    width: 300px;
+    border-style: none;
+    background: none;
+    background-color: black;
+    color: white;
+    ;
+
+}
+
+.inputBtn{
+    width: 90px;
+    border: none;
+    background: none;
+    color:white;
+    background-color: gray;
+    height: 30px;
+
+}

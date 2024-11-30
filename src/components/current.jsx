@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import FiveDays from "./fiveDays";
 import MapComp from "./mapComp";
+import Search from "./search";
 
 const Current = () => {
   let [currentLoc, setCurrentLoc] = useState(null);
@@ -69,6 +70,7 @@ const Current = () => {
         </div>
         {<FiveDays location={currentLoc.name} />}
         {<MapComp lat={currentLoc.coord.lat} lon={currentLoc.coord.lon}/>}
+        {<Search />}
       </div>
     )
   );

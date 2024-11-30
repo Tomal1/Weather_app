@@ -23,52 +23,53 @@ const Current = () => {
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
       )
-        .then((res) =>  res.status !== 200 ? console.log("somthing wrong") : res.json())
+        .then((res) =>
+          res.status !== 200 ? console.log("somthing wrong") : res.json()
+        )
         .then((data) => data.cod === 200 && setCurrentLoc(data))
         .catch((err) => console.error(err));
     };
   }, []);
 
-  // let name = currentLoc.name
-  // let time = (currentLoc.dt % 86400) / (86400 * 24)
-  // let wind = currentLoc.wind.speed
-  // let temp = (currentLoc.main.temp - 273.15) + " C"
-  // let min = (currentLoc.main.temp_min -273.15) + " C"
-  // let max = (currentLoc.main.temp_max -273.15) + " C"
-  // let description = currentLoc.weather[0].description
-  // let icon = currentLoc.weather[0].icon
   let d = new Date();
-  let time = d.toLocaleTimeString()
+  let time = d.toLocaleTimeString();
 
   // 86400 sec in 1 day
   // 3600 sec's in 1 hour
   //unix time is sec's since 01/01/1970
   // dt /86400 = nomber of days since 01/01/1970
 
-
-
-// console.log(currentLoc.coord)
-
-
-  return currentLoc && (
-    <div id="currentCon">
-
-      <div className="display">
-        {/* to refresh comment out image line first, then the rest, then uncomment everything except image and then uncomment image last */}
-        <div className="location content">{currentLoc.name}</div>
-        <div className="time content">{time}</div>
-        <div className="currentTemp content">{Math.round(currentLoc.main.temp - 273.15) + " C"}</div>
-        <div className="max content">{Math.round(currentLoc.main.temp_max -273.15) + " C"}</div>
-        <div className="min content">{Math.round(currentLoc.main.temp_min -273.15) + " C"}</div>
-        <div className="wind content">{currentLoc.wind.speed + " mph"}</div>
-        <div className="discription content">{currentLoc.weather[0].description}</div>
-        <div className="icon content"><img className="iconImg" src={`http://openweathermap.org/img/wn/${currentLoc.weather[0].icon}.png`}/></div> 
-      </div>
-        {<FiveDays location={currentLoc.name}/>}
+  return (
+    currentLoc && (
+      <div id="currentCon">
+        <div className="display">
+          {/* to refresh comment out image line first, then the rest, then uncomment everything except image and then uncomment image last */}
+          <div className="location content">{currentLoc.name}</div>
+          <div className="time content">{time}</div>
+          <div className="currentTemp content">
+            {Math.round(currentLoc.main.temp - 273.15) + " C"}
+          </div>
+          <div className="max content">
+            {Math.round(currentLoc.main.temp_max - 273.15) + " C"}
+          </div>
+          <div className="min content">
+            {Math.round(currentLoc.main.temp_min - 273.15) + " C"}
+          </div>
+          <div className="wind content">{currentLoc.wind.speed + " mph"}</div>
+          <div className="discription content">
+            {currentLoc.weather[0].description}
+          </div>
+          <div className="icon content">
+            <img
+              className="iconImg"
+              src={`http://openweathermap.org/img/wn/${currentLoc.weather[0].icon}.png`}
+            />
+          </div>
+        </div>
+        {<FiveDays location={currentLoc.name} />}
         {<Map lat={currentLoc.coord.lat} lon={currentLoc.coord.lon} />}
-    </div>
-
-
+      </div>
+    )
   );
 };
 

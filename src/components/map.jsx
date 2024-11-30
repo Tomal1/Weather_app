@@ -3,11 +3,13 @@ import React from "react";
 import "../assets/style/map.css"
 
 
-const Map = (lat, long) =>{
+const Map = (props) =>{
+
+    console.log(props)
     
     
     return(
-        <div id="map">
+        <div className="map">
         </div>
 
     )

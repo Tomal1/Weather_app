@@ -3,6 +3,7 @@ import "../assets/style/current.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import FiveDays from "./fiveDays";
+import Map from "./map";
 
 const Current = () => {
   let [currentLoc, setCurrentLoc] = useState(null);
@@ -43,7 +44,10 @@ const Current = () => {
   // 3600 sec's in 1 hour
   //unix time is sec's since 01/01/1970
   // dt /86400 = nomber of days since 01/01/1970
-console.log(currentLoc)
+
+
+
+// console.log(currentLoc.coord)
 
 
   return currentLoc && (
@@ -61,6 +65,7 @@ console.log(currentLoc)
         <div className="icon content"><img className="iconImg" src={`http://openweathermap.org/img/wn/${currentLoc.weather[0].icon}.png`}/></div> 
       </div>
         {<FiveDays location={currentLoc.name}/>}
+        {<Map lat={currentLoc.coord.lat} lon={currentLoc.coord.lon} />}
     </div>
 
 

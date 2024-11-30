@@ -1,16 +1,16 @@
-import React from "react"
-import Nav from "./components/nav"
-import Current from "./components/current"
+import React from "react";
+import Nav from "./components/nav";
+import Current from "./components/current";
+// import MapComp from "./components/mapComp";
 
 function App() {
-  
-
   return (
     <>
-      <Nav/>
-      <Current/>
+      <Nav />
+      <Current />
+      {/* <MapComp/> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

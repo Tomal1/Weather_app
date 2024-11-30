@@ -3,11 +3,12 @@ import "../assets/style/current.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import FiveDays from "./fiveDays";
-import Map from "./map";
+import MapComp from "./mapComp";
 
 const Current = () => {
   let [currentLoc, setCurrentLoc] = useState(null);
 
+  
   // if you want to avoid infinate loops put everything inside the use effect
   useEffect(() => {
     const success = (position) => {
@@ -67,7 +68,7 @@ const Current = () => {
           </div>
         </div>
         {<FiveDays location={currentLoc.name} />}
-        {<Map lat={currentLoc.coord.lat} lon={currentLoc.coord.lon} />}
+        {<MapComp lat={currentLoc.coord.lat} lon={currentLoc.coord.lon}/>}
       </div>
     )
   );

@@ -14,8 +14,6 @@ const FiveDays = (props) => {
         res.status !== 200 ? console.log("somthing wrong") : res.json()
       )
       .then((data) => {
-        console.log(data);
-
         let forcast = data.list;
 
         let one = [];
@@ -53,8 +51,7 @@ const FiveDays = (props) => {
       );
     });
 
-  return <div id="fiveDay">
-    {info && display}</div>;
+  return <div id="fiveDay">{info && display}</div>;
 };
 
 export default FiveDays;

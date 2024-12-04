@@ -1,4 +1,4 @@
-.searchBox{
+/* .searchBox{
     position: absolute;
     margin-top: 50vh;
     height: 40vh;
@@ -28,5 +28,11 @@
     color:white;
     background-color: rgb(88, 130, 132);
     height: 30px;
-
+    cursor: pointer;
 }
+
+.inputBtn:hover{
+    scale: 1.02;
+    border: 2px solid white;
+
+} */

@@ -4,33 +4,70 @@ import { useState } from "react";
 import { useEffect } from "react";
 import FiveDays from "./fiveDays";
 import MapComp from "./mapComp";
-import Search from "./search";
 
 const Current = () => {
   let [currentLoc, setCurrentLoc] = useState(null);
+  let [searchLoc, setSearchLoc] = useState("");
+
+  // if you want to avoid infinate loops put everything inside the use effect
+
+  const success = (position) => {
+
+    let coordObj = {
+      lat: position.coords.latitude,
+      long: position.coords.longitude,
+    };
+    ///searchLoc is not getting registered hear
+
+    searchLoc === "" ? findCurrentLoc(coordObj) : updateSearchLoc()
+  };
+
+  const updateSearchLoc = () => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${searchLoc}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
+    )
+      .then((res) =>
+        res.status !== 200 ? console.log("somthing wrong") : res.json()
+      )
+      .then((data) => {
+
+        let coordObj = {
+          lat: data.city.coord.lat,
+          long: data.city.coord.lon,
+        };
+
+        findCurrentLoc(coordObj)
+
+      
+      });
+  };
+
+  const findCurrentLoc = (arg) => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${arg.lat}&lon=${arg.long}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
+    )
+      .then((res) =>
+        res.status !== 200 ? console.log("somthing wrong") : res.json()
+      )
+      .then((data) => data.cod === 200 && setCurrentLoc(data))
+      .catch((err) => console.error(err));
+  };
+
+
 
   
-  // if you want to avoid infinate loops put everything inside the use effect
   useEffect(() => {
-    const success = (position) => {
-      let lat = position.coords.latitude;
-      let long = position.coords.longitude;
-      findCurrentLoc(lat, long);
-    };
+    
+
 
     const error = () => alert("please turn on your GPS location");
     navigator.geolocation.watchPosition(success, error); //getCurrentPosition() will only get position once but this one will keep tracking
 
-    const findCurrentLoc = (lat, long) => {
-      fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=1c2664e16cd9dca0ca2c91a78a16c059`
-      )
-        .then((res) =>
-          res.status !== 200 ? console.log("somthing wrong") : res.json()
-        )
-        .then((data) => data.cod === 200 && setCurrentLoc(data))
-        .catch((err) => console.error(err));
-    };
+    /*
+    in hear we need to creat a condition where if user provides a location
+    we will execuate a search function else we will execcute findCurrentLoc function
+    */
+
   }, []);
 
   let d = new Date();
@@ -40,6 +77,7 @@ const Current = () => {
   // 3600 sec's in 1 hour
   //unix time is sec's since 01/01/1970
   // dt /86400 = nomber of days since 01/01/1970
+
 
   return (
     currentLoc && (
@@ -69,8 +107,18 @@ const Current = () => {
           </div>
         </div>
         {<FiveDays location={currentLoc.name} />}
-        {<MapComp lat={currentLoc.coord.lat} lon={currentLoc.coord.lon}/>}
-        {<Search />}
+        {<MapComp lat={currentLoc.coord.lat} lon={currentLoc.coord.lon} />}
+
+        {/* <div className="searchBox">
+            <input
+              type="text"
+              value={searchLoc}
+              onChange={(e)=> setSearchLoc(e.target.value)}
+              className="inputField"
+            />
+            <button className="inputBtn">search</button>
+     
+        </div> */}
       </div>
     )
   );

@@ -3,10 +3,13 @@
 }
 
 p{
+    position: fixed;
     background-color: rgb(88, 130, 132);
+    opacity: 0.5;
     border-bottom: 3px double white;
     color:black;
     height: 10vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;

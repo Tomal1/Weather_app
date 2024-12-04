@@ -85,7 +85,7 @@ const Current = () => {
             {Math.round(currentLoc.main.temp_min - 273.15) + " C"}
           </div>
           <div className="wind content">{currentLoc.wind.speed + " mph"}</div>
-          <div className="discription content">
+          <div className="description content">
             {currentLoc.weather[0].description}
           </div>
           <div className="icon content">

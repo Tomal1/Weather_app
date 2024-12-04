@@ -9,17 +9,21 @@ const Current = () => {
   let [currentLoc, setCurrentLoc] = useState(null);
   let [searchLoc, setSearchLoc] = useState("");
 
-  // if you want to avoid infinate loops put everything inside the use effect
+  // if you want to avoid infinate loops put inital function inside the use effect
+
+  // but leave everything else outside of to be able to access the state data (you cant pass data inside useEffect)
+  useEffect(() => {
+    const error = () => alert("please turn on your GPS location");
+    navigator.geolocation.getCurrentPosition(success, error); //getCurrentPosition() will only get position once but watchPosition() will keep tracking
+  }, []);
 
   const success = (position) => {
-
     let coordObj = {
       lat: position.coords.latitude,
       long: position.coords.longitude,
     };
-    ///searchLoc is not getting registered hear
 
-    searchLoc === "" ? findCurrentLoc(coordObj) : updateSearchLoc()
+    searchLoc === "" ? findCurrentLoc(coordObj) : updateSearchLoc();
   };
 
   const updateSearchLoc = () => {
@@ -30,15 +34,12 @@ const Current = () => {
         res.status !== 200 ? console.log("somthing wrong") : res.json()
       )
       .then((data) => {
-
         let coordObj = {
           lat: data.city.coord.lat,
           long: data.city.coord.lon,
         };
 
-        findCurrentLoc(coordObj)
-
-      
+        findCurrentLoc(coordObj);
       });
   };
 
@@ -53,23 +54,6 @@ const Current = () => {
       .catch((err) => console.error(err));
   };
 
-
-
-  
-  useEffect(() => {
-    
-
-
-    const error = () => alert("please turn on your GPS location");
-    navigator.geolocation.watchPosition(success, error); //getCurrentPosition() will only get position once but this one will keep tracking
-
-    /*
-    in hear we need to creat a condition where if user provides a location
-    we will execuate a search function else we will execcute findCurrentLoc function
-    */
-
-  }, []);
-
   let d = new Date();
   let time = d.toLocaleTimeString();
 
@@ -78,6 +62,11 @@ const Current = () => {
   //unix time is sec's since 01/01/1970
   // dt /86400 = nomber of days since 01/01/1970
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchLoc(e.target.value);
+    updateSearchLoc();
+  };
 
   return (
     currentLoc && (
@@ -109,16 +98,17 @@ const Current = () => {
         {<FiveDays location={currentLoc.name} />}
         {<MapComp lat={currentLoc.coord.lat} lon={currentLoc.coord.lon} />}
 
-        {/* <div className="searchBox">
-            <input
-              type="text"
-              value={searchLoc}
-              onChange={(e)=> setSearchLoc(e.target.value)}
-              className="inputField"
-            />
-            <button className="inputBtn">search</button>
-     
-        </div> */}
+        <div className="searchBox">
+          <input
+            type="text"
+            value={searchLoc}
+            onChange={(e) => handleSearch(e)}
+            className="inputField"
+          />
+          <button className="inputBtn" onClick={handleSearch}>
+            search
+          </button>
+        </div>
       </div>
     )
   );

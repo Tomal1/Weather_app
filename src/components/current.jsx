@@ -14,7 +14,7 @@ const Current = () => {
   // but leave everything else outside of to be able to access the state data (you cant pass data inside useEffect)
   useEffect(() => {
     const error = () => alert("please turn on your GPS location");
-    navigator.geolocation.getCurrentPosition(success, error); //getCurrentPosition() will only get position once but watchPosition() will keep tracking
+    navigator.geolocation.watchPosition(success, error); //getCurrentPosition() will only get position once but watchPosition() will keep tracking
   }, []);
 
   const success = (position) => {

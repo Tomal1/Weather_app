@@ -1,12 +1,11 @@
 #currentCon {
   width: 100vw;
-  padding-top: 50px;
+  padding-top: 100px;
   flex-wrap: wrap;
   display: flex;
   justify-content: space-evenly;
   align-items: start;
   text-align: center;
-
 }
 
 .display {
@@ -96,40 +95,36 @@
   align-items: center;
 }
 
-
-.searchBox{
+.searchBox {
   margin-top: 20px;
   height: 40vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: start;
-  
 }
 
-.inputField{
-  height: 28px;
+.inputField {
+  height: 38px;
   width: 300px;
   border-style: none;
   background: none;
   background-color: white;
   opacity: 0.5;
   color: black;
-
 }
 
-.inputBtn{
+.inputBtn {
   width: 90px;
   border: none;
   background: none;
-  color:white;
+  color: white;
   background-color: rgb(88, 130, 132);
-  height: 30px;
+  height: 40px;
   cursor: pointer;
 }
 
-.inputBtn:hover{
+.inputBtn:hover {
   scale: 1.02;
   border: 2px solid white;
-
 }

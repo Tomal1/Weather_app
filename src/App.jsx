@@ -39,13 +39,11 @@ function App() {
     return url;
   };
 
-  useEffect(()=>{
-    backGround()
+  useEffect(() => {
+    backGround();
+  }, []);
 
-  },[])
-
-
-  console.log(url)
+  console.log(url);
   return (
     <div id="poster" style={{ backgroundImage: `url(../public/${url})` }}>
       <Nav />

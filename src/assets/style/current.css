@@ -17,6 +17,7 @@
   display: grid;
   grid-template-columns: repeat(6, 65px);
   grid-template-rows: repeat(6, 65px);
+
 }
 
 .icon {

@@ -8,7 +8,7 @@ const MapComp = (props) => {
   return (
     <MapContainer
       center={[props.lat, props.lon]}
-      zoom={16}
+      zoom={6}
       scrollWheelZoom={false}
     >
       <TileLayer

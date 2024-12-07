@@ -45,7 +45,7 @@ function App() {
 
   console.log(url);
   return (
-    <div id="poster" style={{ backgroundImage: `url(../public/${url})` }}>
+    <div id="poster" style={{ backgroundImage: `url(${url})` }}>
       <Nav />
       <Current image={backGround} />
     </div>

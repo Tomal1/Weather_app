@@ -37,7 +37,7 @@ function App() {
     } else if (data === "50d" || data === "50n") {
       setFilename("50d:n.jpg");
     }
-    return filename;
+     filename;
   };
 
   useEffect(() => {

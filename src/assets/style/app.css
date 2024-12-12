@@ -1,12 +1,9 @@
-*{
-    color: white;
-    font-family: "Courier New";
-    font-size: 14px;
-    
-
+* {
+  color: white;
+  font-family: "Courier New";
+  font-size: 14px;
 }
 
-#poster{
-    /* background-image: url("../../../public/09d:n.jpg"); */
-    background-size:cover;
+#poster {
+  background-size: cover;
 }

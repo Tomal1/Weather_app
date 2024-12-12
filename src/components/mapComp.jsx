@@ -4,7 +4,6 @@ import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 
 const MapComp = (props) => {
-
   return (
     <MapContainer
       center={[props.lat, props.lon]}

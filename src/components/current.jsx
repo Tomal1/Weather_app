@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import FiveDays from "./fiveDays";
 import MapComp from "./mapComp";
+import "leaflet/dist/leaflet.css";
 
 const Current = (props) => {
   let [currentLoc, setCurrentLoc] = useState(null);

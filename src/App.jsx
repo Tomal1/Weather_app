@@ -5,6 +5,7 @@ import "./assets/style/app.css";
 import { useState } from "react";
 import { useEffect } from "react";
 
+
 function App() {
   let [url, setUrl] = useState("");
 
@@ -43,6 +44,7 @@ function App() {
     backGround();
   }, []);
 
+  /* ../public/*/
   console.log(url);
   return (
     <div id="poster" style={{ backgroundImage: `url(${url})` }}>

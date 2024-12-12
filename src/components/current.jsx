@@ -9,8 +9,8 @@ const Current = (props) => {
   let [currentLoc, setCurrentLoc] = useState(null);
   let [searchLoc, setSearchLoc] = useState("");
 
-  // if currentLoc is avalible send it back to the parent "app.jsx" 
-  currentLoc && props.image(props.image(currentLoc.weather[0].icon))
+  // if currentLoc is avalible send it back to the parent "app.jsx"
+  currentLoc && props.image(props.image(currentLoc.weather[0].icon));
 
   // if you want to avoid infinate loops put inital function inside the use effect
 
@@ -21,9 +21,6 @@ const Current = (props) => {
   }, []);
 
   const success = (position) => {
-    
-    
-
     let coordObj = {
       lat: position.coords.latitude,
       long: position.coords.longitude,

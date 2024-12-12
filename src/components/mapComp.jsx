@@ -9,6 +9,7 @@ const MapComp = (props) => {
       center={[props.lat, props.lon]}
       zoom={6}
       scrollWheelZoom={false}
+      style={{ width: "390px", height: "390px" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

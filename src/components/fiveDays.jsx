@@ -2,6 +2,7 @@ import React from "react";
 import "../assets/style/fiveDays.css";
 import { useEffect } from "react";
 import { useState } from "react";
+import "leaflet/dist/leaflet.css";
 
 const FiveDays = (props) => {
   let [info, setInfo] = useState(null);

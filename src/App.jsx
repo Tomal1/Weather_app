@@ -39,16 +39,20 @@ function App() {
     } else if (data === "50d" || data === "50n") {
       setFilename("50d_n.jpg");
     }
-     filename;
   };
 
   useEffect(() => {
     backGround();
   }, []);
 
-  console.log(filename);
+  console.log("xxx",filename);
+
+  // const x = "09n_d.jpg"
+
+ 
+
   return (
-    <div id="poster" style={{ backgroundImage: `url(${filename})` }}>
+    <div id="poster" style={{backgroundImage: `url(${filename}})` }}>
       <Nav />
       <Current image={backGround} />
     </div>
